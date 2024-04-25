@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <!--Make the web become dynamic-->
+    <title>Wilson Preschool</title>
+    <link rel="stylesheet" href="Style.css"> <!--link to css -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- rel: relationship between the current document and the linked resource -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet"> <!-- fonts -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- icon -->
+</head>
+<body>
+<section class="header">
+    <!-- navbar -->
+    <nav>
+        <a class="logo"> Wilson Preschool </a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i> <!-- button x / close untuk hide menu, i : event attributes (onclick, mouse events) -->
+            <ul>
+                <li><a href="index.html">Home</a></li> <!-- a : hyperlink, li : list items, ul : unordered list-->
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="applicants.html">Applicants</a></li> -->
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i> <!-- button bars untuk show menu -->
+    </nav>
+</section>
+
+<!-- JavaScript for Toggle Menu -->
+<script>
+    var navLinks = document.getElementById("navLinks"); // var untuk declare variabel
+
+    function showMenu(){
+        navLinks.style.right = "0"; // 0 biar visible
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px"; // hide menu
+    }
+
+</script>
+
+<section>
+    <!-- <div class="title">
+        <H2>WILSON PRESCHOOL</H2>
+    </div> -->
+
+    <!-- slideshow -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <div class="text-box">
+                <h1>Wilson Preschool</h1>
+                <p>Welcome to our preschool, where little minds blossom through play-based learning, creative exploration,
+                    <br> and nurturing guidance in a warm and loving home environment.
+                </p>
+                <a href="About Us.html" class="hero-btn">Visit Us To Know More</a>
+            </div>
+            <img src="images/ss1.jpg" style="width:100%">
+            <!-- <div class="text">Caption Text</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <div class="text-box">
+                <h1>Wilson Preschool</h1>
+                <p>Welcome to our preschool, where little minds blossom through play-based learning, creative exploration,
+                    <br> and nurturing guidance in a warm and loving home environment.
+                </p>
+                <a href="About Us.html" class="hero-btn">Visit Us To Know More</a>
+            </div>
+            <img src="images/sby.jpg" style="width:100%">
+            <!-- <div class="text">Caption Two</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <div class="text-box">
+                <h1>Wilson Preschool</h1>
+                <p>Welcome to our preschool, where little minds blossom through play-based learning, creative exploration,
+                    <br> and nurturing guidance in a warm and loving home environment.
+                </p>
+                <a href="About Us.html" class="hero-btn">Visit Us To Know More</a>
+            </div>
+            <img src="images/ss3.jpg" style="width:100%">
+            <!-- <div class="text">Caption Three</div> -->
+        </div>
+    </div>
+
+    <br>
+
+    <!-- three dot yang dibawah -->
+    <div style="text-align:center; padding-top: 25px">
+        <span class="dot"></span> <!-- span : inline element -->
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <!-- <div class="text-box">
+      <h1>Wilson Preschool</h1>
+      <p>Welcome to our preschool, where little minds blossom through play-based learning, creative exploration,
+      <br> and nurturing guidance in a warm and loving home environment.
+      </p>
+      <a href="About Us.html" class="hero-btn">Visit Us To Know More</a>
+  </div> -->
+
+</section>
+
+<!--JavaScript For Slide Show-->
+<script>
+    let slideIndex = 0; // slideIndex buat variabel image mana yang lagi ditunjukin, let : buat declare variable
+    showSlides(); // start slideshow
+
+    // function untuk showslide
+    function showSlides() {
+        let i; // let : declare variabel yang limited kalau var : global / local
+        let slides = document.getElementsByClassName("mySlides"); // buat slide
+        let dots = document.getElementsByClassName("dot"); // buat dot
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+</script>
+
+<!--Course-->
+<section class="Courses">
+    <h1>Programs</h1>
+    <p>There are three preschool programs.</p>
+
+    <div class="Row"> <!-- baris -->
+        <div class="Course-col"> <!-- kolom -->
+            <h3>Daycare</h3>
+            <p>Daycare program is designed for providing stimulation, interaction, routine and exploration opportunities for early motor, social, intellectual and moral development.</p>
+        </div>
+        <div class="Course-col">
+            <h3>Pre-Kindergarten</h3>
+            <p>Pre-Kindergarten program is designed to provide opportunities for children to develop holistically.</p>
+        </div>
+        <div class="Course-col">
+            <h3>Kindergarten</h3>
+            <p>Kindergarten program is designed to foster academic growth, social development, and prepares children for a successful transition to elementary school.</p>
+        </div>
+    </div>
+</section>
+
+<!--Campus-->
+<section class="Univ">
+    <h1>Our Preschool Locations</h1>
+    <p>There are three preschool locations.</p>
+
+    <div class="Row">
+        <div class="Univ-col">
+            <img src="images/jkt.jpg">
+            <div class="layer"> <!-- buat munculin tulisan pas di kenain cursor -->
+                <h3> JAKARTA </h3>
+            </div>
+        </div>
+        <div class="Univ-col">
+            <img src="images/bndg.jpg">
+            <div class="layer">
+                <h3> BANDUNG </h3>
+            </div>
+        </div>
+        <div class="Univ-col">
+            <img src="images/sby.jpg">
+            <div class="layer">
+                <h3> SURABAYA </h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Facilites-->
+<section class="Facilities">
+    <h1>Our Facilities</h1>
+    <p>These are the preschool facilities.</p>
+
+    <div class="Row">
+        <div class="Facil-col">
+            <img src="images/library.jpg">
+            <h3>Library</h3>
+            <p>Our preschool boasts a vibrant and inviting library, filled with a diverse collection of books, fostering a love for reading and encouraging young minds to explore the world of literature.</p>
+        </div>
+        <div class="Facil-col">
+            <img src="images/outdoor.jpg">
+            <h3>Outdoor Playground</h3>
+            <p>Our preschool features an expansive and engaging outdoor playground, providing a safe and stimulating environment for children to develop gross motor skills, socialize, and enjoy active play.</p>
+        </div>
+        <div class="Facil-col">
+            <img src="images/cafetaria.jpg">
+            <h3>Cafetaria</h3>
+            <p>Our preschool offers a welcoming and child-friendly cafeteria, where nutritious meals and snacks are served, promoting healthy eating habits and creating a positive dining experience for our young learners.</p>
+        </div>
+    </div>
+</section>
+
+<!--Testimony-->
+
+<section class="Testimony">
+    <h1>Testimonials from Parents</h1>
+    <p>These are the parents' opinions about our preschools.</p>
+
+    <div class="Row">
+        <div class="Testi-col">
+            <img src="images/ortu1.jpg">
+            <div>
+                <p>"Our experience at this preschool has been nothing short of amazing. The teachers are nurturing, the curriculum is engaging, and our child has grown leaps and bounds in their social and academic development. We couldn't be happier!"</p>
+                <h3>Ms. Stephanie, Parent of Alia</h3>
+                <i class="fa fa-star"></i> <!-- buat bintang  -->
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+        <div class="Testi-col">
+            <img src="images/ortu2.jpg">
+            <div>
+                <p>"As a parent, I am grateful for the warm and inclusive environment provided by this preschool. The dedicated staff goes above and beyond to ensure my child feels loved, supported, and excited to learn every day."</p>
+                <h3>Mr. Arthur, Parent of Joel</h3>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+        </div>
+        <div class="Testi-col">
+            <img src="images/ortu3.jpg">
+            <div>
+                <p>"Choosing this preschool for my child was the best decision I made. The caring and skilled educators create a stimulating and nurturing atmosphere where my little one thrives, making every day an adventure filled with laughter and growth."</p>
+                <h3>Ms. Winna, Parent of Kayra</h3>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Call To Action-->
+<section class="Contact">
+    <h1>Spark, Discover, Grow: Unleashing Potential at Wilson Preschool</h1>
+    <a href="Contact.html" class="hero-btn">Click Here to Contact Us</a>
+</section>
+
+<!--Footer-->
+<section class="Footer">
+    <h4>About Us</h4>
+    <p>At Wilson Preschool, we believe in the power of early education to shape young minds and inspire a lifelong love for learning.
+        <br>For any inquiries or to schedule a visit, please don't hesitate to reach out to us.</p>
+    <!--icon and linked social media-->
+    <div class="icons">
+        <a href="https://www.facebook.com/SekolahCikal/?locale=id_ID" class="fa fa-facebook"></a>
+        <a href="https://instagram.com/sekolahcikal?igshid=MzRlODBiNWFlZA==" class="fa fa-instagram"></a>
+        <a href="https://twitter.com/sekolahcikal?lang=en" class="fa fa-twitter"></a>
+    </div>
+    <p>Made by Ishom, Shofiyah, and Zahra</p>
+</section>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, inital-scale =1.0">
+  <!--Make the web become dynamic-->
+  <title>Wilson Preschool</title>
+  <link rel="stylesheet" href="Style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Boostrap for burger bar and close--> 
+</head>
+<body>
+<section class="sub-header">
+  <nav>
+    <a href="Preschool.html"><img src=""></a>
+    <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i> <!-- button x / close untuk hide menu, i : event attributes (onclick, mouse events) -->
+      <ul>
+        <li><a href="index.html">Home</a></li> <!-- a : hyperlink, li : list items, ul : unordered list-->
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="applicants.html">Applicants</a></li> -->
+      </ul>
+    </div>
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+  </nav>
+  <h1> About Us </h1>
+</section>
+
+<!--JavaScript for Toggle Menu-->
+<script>
+
+  var navLinks = document.getElementById("navLinks");
+
+  function showMenu(){
+    navLinks.style.right = "0";
+  }
+  function hideMenu(){
+    navLinks.style.right = "-200px";
+  }
+
+</script>
+
+<!--Contect About Us-->
+<section class="About-Us">
+  <div class="row">
+    <div class="about-col">
+      <img src="images/aboutus1.jpg"> <!-- gambar di about us -->
+    </div>
+    <div class="about-col">
+      <h1>Wilson Preschool</h1>
+      <p>Wilson Preschool is a trusted and vibrant community of lifelong learners, where we are dedicated to empowering children to thrive beyond academics. With our rich history since 2013, led by visionary founders Nabil and Alihaq, we believe in nurturing young minds to become future leaders, fostering harmonious relationships and offering extensive programs tailored to unlock every child's potential. <br>
+        <br>For over 10 years, we have been committed to providing a safe, nurturing, and stimulating environment where children can learn, play, and grow. Guided by the principles of Yayasan Cinta Keluarga, our preschool is a place where parents can trust that their children are in the hands of caring educators who are passionate about their development. We understand the importance of fostering a sense of friendship, safety, and happiness, allowing children to explore and thrive in their own unique ways. <br>
+        <br>At Wilson Preschool, we believe that education goes beyond traditional schooling. We strive to create an environment that fosters a love for learning, encourages curiosity, and nurtures each child's individual strengths and interests. Our innovative teaching methods and comprehensive programs are designed to ensure that children receive a well-rounded education. From language and literacy development to math, science, and the arts, we provide a diverse range of experiences that allow children to unfold their potential and develop essential skills for the future. <br>
+        <br>As we continue to evolve and transform education, we are excited to introduce our personalized curriculum approach. With a focus on each and every child, our competencies-based digitally integrated curriculum ensures that learning is engaging, meaningful, and tailored to their unique needs. We believe that by providing a supportive and enriching educational journey, we are equipping our students with the skills, knowledge, and confidence to become leaders of the future. <br>
+        <br> At Wilson Preschool, the partnership between teachers, students, and parents is paramount. Through ongoing communication, collaboration, and reflection, we create a lifelong journey of growth and development. Together, we bridge the gap between home and school, nurturing a strong sense of community and preparing our children to excel academically, socially, and emotionally. <br>
+        <br> Join us at Wilson Preschool, where we are committed to nurturing young minds, fostering a love for learning, and shaping the leaders of tomorrow.</p>
+      <a href="https://youtube.com/@SekolahCikalOfficialYT" class="hero-btn red-btn">Explore Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!--Footer-->
+<section class="Footer">
+  <h4> About Us </h4>
+  <p>At Wilson Preschool, we believe in the power of early education to shape young minds and inspire a lifelong love for learning.
+    <br>For any inquiries or to schedule a visit, please don't hesitate to reach out to us.</p>
+  <div class="icons">
+      <!--Icon and Linked Social Media-->
+    <a href="https://www.facebook.com/SekolahCikal/?locale=id_ID" class="fa fa-facebook"></a>
+    <a href="https://instagram.com/sekolahcikal?igshid=MzRlODBiNWFlZA==" class="fa fa-instagram"></a>
+    <a href="https://twitter.com/sekolahcikal?lang=en" class="fa fa-twitter"></a>
+  </div>
+  <p>Made by Ishom, Shofiyah, and Zahra</p>
+</section>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, inital-scale =1.0">
+     <!--Make the web become dynamic-->
+    <title>Wilson Preschool</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Boostrap for burger bar and close--> 
+</head>
+<body>
+<section class="sub-header-c">
+    <nav>
+        <a href="Preschool.html"><img src=""></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i> <!-- button x / close untuk hide menu, i : event attributes (onclick, mouse events) -->
+            <ul>
+                <li><a href="index.html">Home</a></li> <!-- a : hyperlink, li : list items, ul : unordered list-->
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="applicants.html">Applicants</a></li> -->
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1> Applicants </h1>
+</section>
+
+<!--JavaScript for Toggle Menu-->
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+
+<!--Facilites-->
+<section class="Facilities">
+    <h1>Applicants List</h1>
+    <p>Lists of the applicants.</p>
+
+    <div class="table-wrapper">  <!--Used to hold a complete table-->
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Address</th>
+                <th>House Contact</th>
+                <th>Parent Name</th>
+                <th>Parent's Phone Number</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tbody>
+        </table>
+    </div>
+
+</section>
+
+<!--Footer-->
+<section class="Footer">
+    <h4> About Us </h4>
+    <p>At Wilson Preschool, we believe in the power of early education to shape young minds and inspire a lifelong love for learning.
+        <br>For any inquiries or to schedule a visit, please don't hesitate to reach out to us.</p>
+    <div class="icons">
+        <!--icon and linked social media-->
+        <a href="https://www.facebook.com/SekolahCikal/?locale=id_ID" class="fa fa-facebook"></a>
+        <a href="https://instagram.com/sekolahcikal?igshid=MzRlODBiNWFlZA==" class="fa fa-instagram"></a>
+        <a href="https://twitter.com/sekolahcikal?lang=en" class="fa fa-twitter"></a>
+    </div>
+    <p>Made by Ishom, Shofiyah, and Zahra</p>
+</section>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, inital-scale =1.0">
+  <!--Make the web become dynamic-->
+  <title>Wilson Preschool</title>
+  <link rel="stylesheet" href="Style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<section class="sub-header-b">
+  <nav>
+    <a href="Preschool.html"><img src=""></a>
+    <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i> <!-- button x / close untuk hide menu, i : event attributes (onclick, mouse events) -->
+      <ul>
+        <li><a href="index.html">Home</a></li> <!-- a : hyperlink, li : list items, ul : unordered list-->
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="applicants.html">Applicants</a></li> -->
+      </ul>
+    </div>
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+  </nav>
+  <h1> Blog </h1>
+</section>
+
+<!--JavaScript for Toggle Menu-->
+<script>
+
+  var navLinks = document.getElementById("navLinks");
+
+  function showMenu(){
+    navLinks.style.right = "0";
+  }
+  function hideMenu(){
+    navLinks.style.right = "-200px";
+  }
+
+</script>
+
+<!--Blog-->
+<section class="blog">
+
+  <div class="row">
+    <div class="blog-left">
+      <img src="images/pbl.jpeg">
+      <h2>Wilson Preschool, Apply Play-Based Learning, Fulfill the Needs of Play and Optimize Basic Competencies of Early Childhood</h2>
+      <p>Wilson Preschool, is a renowned educational institution in Jakarta, Indonesia, focusing on children's competency-based learning. With our Play-Based Learning approach, we foster children's self-development and lifelong learning by incorporating play into the learning process. Our curriculum, Competensi 5 Bintang Wilson, ensures an enjoyable educational experience while meeting core competencies.</p>
+      <br>
+      <p>By embracing Play-Based Learning, inspired by Friedrich Froebel, a prominent figure in early childhood education, we recognize the importance of play as a natural need for young children. Play serves as a platform for learning, self-expression, and personal growth. At Wilson Preschool, children have the freedom to explore, create, interact, and understand the world around them through play.</p>
+      <br>
+      <p>Through our Play-Based Learning approach, we not only fulfill children's basic needs but also optimize their development in key areas such as intelligence, health, care, balance, and communication. By engaging in play, children develop the necessary skills, knowledge, and behaviors that prepare them for future educational endeavors.</p>
+      <br>
+      <p>Parents trust Wilson Preschool because of our commitment to providing a fulfilling learning experience. With options for full-time and part-time enrollment, we accommodate the learning and developmental needs of young children. Our Wilson Pop-Up Class activities are highly sought after, often with a waiting list. Parents appreciate our play-based approach, as it ensures an enjoyable and meaningful learning journey for their children, fostering bonding and consistent stimulation.</p>
+      <br>
+      <p>Our dedicated teachers at Wilson Preschool play a crucial role in optimizing children's learning. They carefully plan play-based activities aligned with the curriculum, regularly observe and evaluate individual needs, and assess children's developmental progress. With their expertise and enthusiasm, our teachers create an environment where children can thrive, ensuring a holistic educational experience.</p>
+      <br>
+      <p>At Wilson Preschool, we believe in the power of play to nurture young minds and prepare them for a bright future. Our commitment to Play-Based Learning and the Competensi 5 Bintang Wilson curriculum sets the foundation for children to become lifelong learners, equipped with essential competencies and a love for learning.</p>
+
+      <!-- melakukan comment terhadap blog -->
+      <div class="Comment-box">
+        <h3> Feel Free to Leave a Comment</h3>
+        <form onsubmit="return validateMyForm();" class="Comment-form" action="blog" method="post">
+          <input id="name" type="text" name="name" placeholder="Enter Name" required>
+          <input id="email" type="email" name="email" placeholder="Enter Email" required>
+          <textarea rows="5" name="comment" placeholder="Comments" required></textarea>
+          <button type="Submit" class="hero-btn red-btn"> POST</button>
+          <p id="demo"></p> <!-- display validation -->
+
+          <!-- validation -->
+          <script>
+            function validateMyForm() { // buat kalo setelah di submit
+              var txt;
+              var name = document.getElementById("name").value; // buat munculin nama yang sudah diisi
+              var email = document.getElementById("email").value; // buat munculin email yang sudah diisi
+              if (confirm("Do you want to submit your comment?" + "\n"+"Name: " + name + "\n" + "Email: " + email)) {
+                txt = "Your comment is submitted.";
+                return true;
+              } else {
+                return false;
+              }
+              document.getElementById("demo").innerHTML = txt;
+            }
+          </script>
+        </form>
+        <p></p> <!-- display the message from the servlet -->
+
+      </div>
+      <h2>Comments</h2>
+
+      
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!--Footer-->
+<section class="Footer">
+  <h4> About Us </h4>
+  <p>At Wilson Preschool, we believe in the power of early education to shape young minds and inspire a lifelong love for learning.
+    <br>For any inquiries or to schedule a visit, please don't hesitate to reach out to us.</p>
+  <!--icon and linked social media-->
+  <div class="icons">
+    <a href="https://www.facebook.com/SekolahCikal/?locale=id_ID" class="fa fa-facebook"></a>
+    <a href="https://instagram.com/sekolahcikal?igshid=MzRlODBiNWFlZA==" class="fa fa-instagram"></a>
+    <a href="https://twitter.com/sekolahcikal?lang=en" class="fa fa-twitter"></a>
+  </div>
+  <p>Made by Ishom, Shofiyah, and Zahra</p>
+</section>
+
+</section>
+
+</body>
+</html>

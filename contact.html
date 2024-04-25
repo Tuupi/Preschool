@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, inital-scale =1.0">
+  <!--!--Make the web become dynamic-->
+  <title>Wilson Preschool</title>
+  <link rel="stylesheet" href="Style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<section class="sub-header-cu">
+  <nav>
+    <a href="Preschool.html"><img src=""></a>
+    <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i> <!-- button x / close untuk hide menu, i : event attributes (onclick, mouse events) -->
+      <ul>
+        <li><a href="index.html">Home</a></li> <!-- a : hyperlink, li : list items, ul : unordered list-->
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="applicants.html">Applicants</a></li> -->
+      </ul>
+    </div>
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+  </nav>
+  <h1> Contact Us </h1>
+</section>
+
+<!--JavaScript for Toggle Menu-->
+<script>
+
+  var navLinks = document.getElementById("navLinks");
+
+  function showMenu(){
+    navLinks.style.right = "0";
+  }
+  function hideMenu(){
+    navLinks.style.right = "-200px";
+  }
+
+</script>
+
+<!--Our Contact-->
+
+<!-- display location -->
+<section class="location">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25374.962596075085!2d-121.99358192568357!3d37.345578599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fca50e2b07fe3%3A0x5ce2d1648cf00d59!2sWilson%20Preschool!5e0!3m2!1sen!2sid!4v1686799526377!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<!-- display contact -->
+<section class="contact-us">
+  <div class="row">
+    <div class="contact-col">
+      <div>
+        <i class="fa fa-home"></i>
+        <span>
+                                <h5>Wilson Preschool</h5>
+                                <P>Indonesia</P>
+                            </span>
+      </div>
+      <div>
+        <i class="fa fa-phone"></i>
+        <span>
+                                <h5> +62 89612211409</h5>
+                                <P> Available Monday-Friday, 10AM - 4PM </P>
+                            </span>
+      </div>
+      <div>
+        <i class="fa fa-envelope-o"></i>
+        <span>
+                                <h5>wilsonpreschool@gmail.com</h5>
+                                <P> Please Email Us for Help</P>
+                            </span>
+      </div>
+    </div>
+    <div class="Contact-box">
+      <h3>Contact Us</h3>
+
+      <!-- form message -->
+      <form onsubmit="return validateMyForm();" class="Contact-form" action="contact" method="post">
+        <input id="name" type="text" name="name" placeholder="Enter Your Name" required>
+        <input id="email" type="Email" name="email" placeholder="Enter Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea rows="8" name="message" placeholder="Messages" required></textarea>
+        <button type="Submit" class="hero-btn red-btn"> POST</button>
+        <p>${message}</p> <!-- display the message from the servlet -->
+
+
+        <script>
+          function validateMyForm() {
+            var txt;
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            if (confirm("Do you want to submit this form?" + "\n"+"Name: " + name + "\n" + "Email: " + email)) {
+              return true
+            } else {
+              return false
+            }
+            document.getElementById("demo").innerHTML = txt;
+          }
+        </script>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!--Footer-->
+<section class="Footer">
+  <h4> About Us </h4>
+  <p>At Wilson Preschool, we believe in the power of early education to shape young minds and inspire a lifelong love for learning.
+    <br>For any inquiries or to schedule a visit, please don't hesitate to reach out to us.</p>
+  <!--icon and linked social media-->
+  <div class="icons">
+    <a href="https://www.facebook.com/SekolahCikal/?locale=id_ID" class="fa fa-facebook"></a>
+    <a href="https://instagram.com/sekolahcikal?igshid=MzRlODBiNWFlZA==" class="fa fa-instagram"></a>
+    <a href="https://twitter.com/sekolahcikal?lang=en" class="fa fa-twitter"></a>
+  </div>
+  <p>Made by Ishom, Shofiyah, and Zahra</p>
+</section>
+
+</section>
+</body>
+</html>
