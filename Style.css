@@ -122,9 +122,20 @@ nav img{
     cursor: pointer;
 }
 
+.detail{
+    color: #6495ED;
+    border-color: #6495ED;
+}
+
 .hero-btn:hover{
     border: 1px solid #6495ED;
     background: #6495ED;
+    transition: 1s;
+}
+.detail:hover{
+    border: 1px solid #fff;
+    background: #6495ED;
+    color: #fff;
     transition: 1s;
 }
 
@@ -305,6 +316,13 @@ p{
     justify-content: space-between;
     flex-direction: row;
 }
+.Row-col{
+    margin-top: 5%;
+    height: fit-content;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+}
 @media (max-width: 700px){
     .Row{
         flex-direction: column;
@@ -318,6 +336,25 @@ p{
     margin-bottom: 5%;
     padding: 20px 12px;
     box-sizing: border-box;
+    /* transition: 0.5s; */
+}
+.Course-col2{    
+    flex-basis: 25%;
+    background: #D8F2FF;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    /* transition: 0.5s; */
+}
+.desc-col2{    
+    flex-basis: 65%;
+    background: #ededed;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    justify-content: space-between;
     /* transition: 0.5s; */
 }
 
