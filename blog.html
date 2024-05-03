@@ -66,10 +66,10 @@
       <!-- melakukan comment terhadap blog -->
       <div class="Comment-box">
         <h3> Feel Free to Leave a Comment</h3>
-        <form onsubmit="return validateMyForm();" class="Comment-form" action="blog" method="post">
+        <form onsubmit="return validateMyForm();" class="Comment-form" action="blog.html">
           <input id="name" type="text" name="name" placeholder="Enter Name" required>
           <input id="email" type="email" name="email" placeholder="Enter Email" required>
-          <textarea rows="5" name="comment" placeholder="Comments" required></textarea>
+          <textarea id="comment" rows="5" name="comment" placeholder="Comments" required></textarea>
           <button type="Submit" class="hero-btn red-btn"> POST</button>
           <p id="demo"></p> <!-- display validation -->
 
@@ -79,6 +79,10 @@
               var txt;
               var name = document.getElementById("name").value; // buat munculin nama yang sudah diisi
               var email = document.getElementById("email").value; // buat munculin email yang sudah diisi
+              var content = document.getElementById("comment").value;
+              const jsoncontent = {name: name, email: email, comment: content}
+              const json = JSON.stringify(jsoncontent);
+              localStorage.setItem("blogcontent", json);
               if (confirm("Do you want to submit your comment?" + "\n"+"Name: " + name + "\n" + "Email: " + email)) {
                 txt = "Your comment is submitted.";
                 return true;
@@ -93,7 +97,12 @@
 
       </div>
       <h2>Comments</h2>
-
+      <p id="commentcontent"></p>
+      <script>
+        let text = localStorage.getItem("blogcontent");
+        let obj = JSON.parse(text);
+        document.getElementById("commentcontent").innerHTML = obj.name + "<br>" + obj.email + "<br>" + obj.comment;
+      </script>
       
     </div>
 
