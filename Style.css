@@ -352,9 +352,10 @@ p{
     /* transition: 0.5s; */
 }
 .Course-col2{    
-    flex-basis: 35%;
+    flex-basis: 31%;
     background: #D8F2FF;
-    border-radius: 10px;
+    min-height: 250px;
+    border-radius: 15px;
     margin-bottom: 0px;
     padding: 20px 12px;
     box-sizing: border-box;
@@ -391,8 +392,9 @@ h3{
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
 }
 
-
-
+ul{
+    margin-top: 20px;
+}
 /*--Univ--*/
 
 .Univ{
