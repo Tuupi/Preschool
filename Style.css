@@ -374,10 +374,13 @@ p{
 @media (max-width: 700px){
     .Course-col2{
         margin-bottom: 20px;
-        text-align: justify;
+        text-align: center;
     }
     .desc-col2{
         background:#fff;
+        text-align: justify;
+    }
+    .Course-col2 p{
         text-align: justify;
     }
 }
