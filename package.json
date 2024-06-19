@@ -1,0 +1,26 @@
+{
+  "name": "preschool",
+  "version": "1.0.0",
+  "description": "a simple web about a preschool info",
+  "main": "index.js",
+  "scripts": {
+    "test": "school"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tuupi/preschool-node.git"
+  },
+  "keywords": [
+    "preschool"
+  ],
+  "author": "Toka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tuupi/preschool-node/issues"
+  },
+  "homepage": "https://github.com/Tuupi/preschool-node#readme",
+  "devDependencies": {
+    "webpack": "^5.92.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
