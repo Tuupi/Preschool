@@ -2,11 +2,9 @@
   "name": "preschool",
   "version": "1.0.0",
   "description": "a simple web about a preschool info",
-  "main": "index.js",
+  "main": "public/index.html",
   "scripts": {
-    "test": "school",
-    "build": "webpack",
-    "css": "tailwindcss -i ./src/input.css -o ./public/tailwind.css --watch"
+    "test": "school"
   },
   "repository": {
     "type": "git",

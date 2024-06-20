@@ -1,0 +1,2 @@
+"build": "webpack",
+    "css": "tailwindcss -i ./src/input.css -o ./public/tailwind.css --watch"
