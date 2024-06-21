@@ -27,10 +27,14 @@ getDocs(colRef).then((snapshot) => {
         comments.push({ ...doc.data(), id: doc.id })
     })
     console.log(comments)
-    comments.forEach((comment) => {
+    snapshot.forEach((comment) => {
         var div = document.createElement(div);
-        div.classList.add("");
-        div.innerHTML = comment.name + "<br>" + comment.email + "<br>" + comment.comment + "<br>";
+        div.innerHTML = comment.data().name + "<br>" + comment.data().email + "<br>" + comment.data().comment + "<br>";
+        // div.classList.add("bg-white");
+        div.classList.add("my-6");
+        div.classList.add("p-4");
+        div.classList.add("rounded-lg");
+        div.classList.add("shadow-md");
         document.getElementById("commentcontent").appendChild(div);
     })
 })

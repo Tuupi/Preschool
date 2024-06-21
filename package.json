@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "school",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "webpack",
+    "css": "tailwindcss -i ./src/input.css -o ./public/tailwind.css --watch"
   },
   "repository": {
     "type": "git",
