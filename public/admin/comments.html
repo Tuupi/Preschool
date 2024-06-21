@@ -63,31 +63,8 @@
                         <th>Comment</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <% // Database connection parameters final String DB_URL="jdbc:mysql://localhost:3306/preschool" ;
-                        final String DB_USER="root" ; final String DB_PASS="" ; // Use an appropriate password if set //
-                        SQL statement to select all blogs from the database final String
-                        SQL_SELECT="SELECT * FROM blog ORDER BY idBlog ASC" ; // Try to connect to the database and
-                        query the blogs try { Class.forName("com.mysql.jdbc.Driver"); } catch (ClassNotFoundException e)
-                        { throw new RuntimeException(e); } try (Connection conn=DriverManager.getConnection(DB_URL,
-                        DB_USER, DB_PASS); PreparedStatement stmt=conn.prepareStatement(SQL_SELECT); ResultSet
-                        rs=stmt.executeQuery()) { // Loop through the result set and create blog objects while
-                        (rs.next()) { int id=rs.getInt("idBlog"); String name=rs.getString("nameBlog"); String
-                        email=rs.getString("emailBlog"); String comment=rs.getString("comBlog"); out.println("<tr>");
-                        out.println("<td>" + id + "</td>");
-                        out.println("<td>" + name + "</td>");
-                        out.println("<td>" + email + "</td>");
-                        out.println("<td>" + comment + "</td>");
-                        out.println("</tr>");
-                        }
-
-                        } catch (SQLException e) {
-                        // Handle any SQL exception
-                        e.printStackTrace();
-                        // Display an error message
-                        out.println("<p>Database error. Please check your connection settings.</p>");
-                        }
-                        %>
+                <tbody id="commentsadmin">
+                    
                 </tbody>
             </table>
         </div>
@@ -107,6 +84,7 @@
         </div>
         <p>Made by Ilham and Zahra</p>
     </section>
+    <script src="../bundle.js"></script>
 </body>
 
 </html>

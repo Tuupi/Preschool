@@ -5,6 +5,9 @@ import {
     Timestamp
 } from 'firebase/firestore'
 
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyDFnkeNCEUse2BLRAcKvJuKyjpmFicLcdQ",
     authDomain: "preschool-node.firebaseapp.com",
@@ -54,4 +57,13 @@ addCommentForm.addEventListener('submit', (e) => {
     })
 
 })
-    
+
+app.get("/comments", (req, res, next) => {
+    getDocs(colRef).then((snapshot) => {
+        let comments = []
+        snapshot.docs.forEach((doc) => {
+            comments.push({ ...doc.data(), id: doc.id })
+        })
+    })
+    res.json(comments);
+})
