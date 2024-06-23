@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, inital-scale =1.0">
   <!--Make the web become dynamic-->
   <title>Wilson Preschool</title>
-  
-  <link rel="stylesheet" href="Style.css">
   <link rel="stylesheet" href="tailwind.css">
+  <link rel="stylesheet" href="Style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -68,7 +67,7 @@
       <!-- melakukan comment terhadap blog -->
       <div class="Comment-box">
         <h3> Feel Free to Leave a Comment</h3>
-        <form class="Comment-form">
+        <form class="Comment-form" id="Comment-form" method="POST">
           <input id="name" type="text" name="name" placeholder="Enter Name" required>
           <input id="email" type="email" name="email" placeholder="Enter Email" required>
           <textarea id="comment" rows="5" name="comment" placeholder="Comments" required></textarea>

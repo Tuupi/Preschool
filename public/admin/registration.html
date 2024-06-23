@@ -55,29 +55,23 @@
             <h3>Registrasi</h3>
             <form class="Comment-form" onsubmit="return validateMyForm();" action="/registration" method="post">
                 <!-- Hidden input for the action parameter -->
-                <input id="idRegistration" type="hidden" name="idRegistration" value="<%= id %>">
-                <input id="name" type="text" name="name" placeholder="Enter Name" value="<%= name %>" required>
-                <input id="gender" type="text" name="gender" placeholder="Enter Gender (M/F)" value="<%= gender %>"
+                <input id="name" type="text" name="name" placeholder="Enter Name"  required>
+                <input id="gender" type="text" name="gender" placeholder="Enter Gender (M/F)" 
                     required>
-                <input id="birthdate" type="date" name="birthdate" value="<%= birthdate %>" required>
-                <input id="address" type="text" name="address" placeholder="Enter Address" value="<%= address %>"
+                <input id="birthdate" type="date" name="birthdate"  required>
+                <input id="address" type="text" name="address" placeholder="Enter Address" 
                     required>
                 <input id="homePhone" type="number" name="homePhone" placeholder="Enter Home Phone Number"
-                    value="<%= homePhone %>" required>
+                     required>
                 <input id="parentName" type="text" name="parentName" placeholder="Enter Parent Name"
-                    value="<%= parentName %>" required>
+                     required>
                 <input id="parentPhone" type="number" name="parentPhone" placeholder="Enter Parent Phone Number"
-                    value="<%= parentPhone %>" required>
+                     required>
                 <button type="submit" class="hero-btn red-btn">
-                    <%= buttonText %>
+                    Submit
                 </button>
             </form>
-            <script>
-                function validateMyForm() {
-                    return confirm("Submit?") ? true : false;
-                }
-            </script>
-            <p>${message}</p>
+            <p></p>
         </div>
     </section>
 
@@ -96,5 +90,4 @@
         <p>Made by Ilham and Zahra</p>
     </section>
 </body>
-
 </html>

@@ -1,9 +1,8 @@
-import { initializeApp } from 'firebase/app'
-import { 
-    getFirestore, collection, getDocs,
+const { initializeApp } = require('firebase/app')
+const { getFirestore, collection, getDocs,
     addDoc,
     Timestamp
-} from 'firebase/firestore'
+} = require('firebase/firestore')
 
 const firebaseConfig = {
     apiKey: "AIzaSyDFnkeNCEUse2BLRAcKvJuKyjpmFicLcdQ",
@@ -19,4 +18,4 @@ initializeApp(firebaseConfig)
 
 const db = getFirestore()
 
-module.exports = connection;
+module.exports = db;
