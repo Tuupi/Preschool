@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { collection,  getDocs, addDoc, Timestamp } = require('firebase/firestore');
+const { collection,  getDocs, addDoc, Timestamp, doc, updateDoc } = require('firebase/firestore');
 const db = require('./connection.js');
 
 const applicantRoute = express.Router();
@@ -28,4 +28,19 @@ applicantRoute.post("/", async (req, res, next) => {
         "message" : "Added to messages collection"
     })
 })
+applicantRoute.put('/:id', async (req, res) => {
+    const {id} = req.params;
+    const ref = doc(db, "applicants", id)
+    await updateDoc(ref, req.body)
+    res.json({"message" : "Updated at id " + id})
+})
+applicantRoute.delete('/:id', async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      await deleteDoc(doc(db, 'applicants', id))
+      res.json({ "message": 'applicants Deleted' });
+    } catch (error) {
+      res.json({"message": error})
+    }
+  });
 module.exports = applicantRoute;

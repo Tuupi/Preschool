@@ -12,7 +12,7 @@
 
 const addCommentForm = document.querySelector('#Comment-form')
 addCommentForm.addEventListener('submit', (e) => {
-    e.preventDefault()
+    e.preventDefault
     const formData = JSON.stringify({
         name: addCommentForm.name.value,
         email: addCommentForm.email.value,

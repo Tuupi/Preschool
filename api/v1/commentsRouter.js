@@ -38,4 +38,20 @@ cmntsRoute.post("/", (req, res) => {
         res.status(500).json({ error: 'Error adding comment' });
     }
 })
+
+cmntsRoute.put('/:id', async (req, res) => {
+    const {id} = req.params;
+    const ref = doc(db, "comments", id)
+    await updateDoc(ref, req.body)
+    res.json({"message" : "Updated at id " + id})
+})
+cmntsRoute.delete('/:id', async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      await deleteDoc(doc(db, 'comments', id))
+      res.json({ "message": 'comments Deleted' });
+    } catch (error) {
+      res.json({"message": error})
+    }
+  });
 module.exports = cmntsRoute;
