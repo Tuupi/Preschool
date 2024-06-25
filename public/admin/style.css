@@ -986,6 +986,10 @@ body {
     background: #F8F8F8;
 }
 
+.g-recaptcha{
+    
+}
+
 /* Responsive */
 
 @media (max-width: 767px) {

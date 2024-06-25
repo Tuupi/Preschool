@@ -4,12 +4,13 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wilson Preschool</title>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="/admin/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -30,11 +31,9 @@
     <!--JavaScript for Toggle Menu-->
     <script>
         var navLinks = document.getElementById("navLinks");
-
         function showMenu() {
             navLinks.style.right = "0";
         }
-
         function hideMenu() {
             navLinks.style.right = "-200px";
         }
@@ -43,16 +42,15 @@
     <!--Facilities-->
     <section class="Facilities">
         <h1>Login</h1>
-
         <div style="background: white" class="Comment-box">
             <h1>Login as an admin</h1>
-            <form class="Comment-form" action="/login" method="post">
-                <p>Username: <input type="text" name="username" required></p>
-                <p>Password: <input type="password" name="password" required></p>
-                <p><input style="cursor: pointer" type="submit" value="Login"></p>
+            <form id="login-form" class="Comment-form">
+                <p>Username: <input id="email" type="text" name="email" required></p>
+                <p>Password: <input id="password" type="password" name="password" required></p>
+                <div class="g-recaptcha" data-sitekey="6LfgLAAqAAAAAKOQ72saaq8lmFPNmtNry122XnWn"></div>
+                <p><input id="login" style="cursor: pointer" type="submit" value="Login"></p>
+                <p id="error-message" style="color: red"></p>
             </form>
-            <%-- Display any error messages --%>
-                <p style="color: red">${error}</p>
         </div>
     </section>
 
@@ -70,6 +68,76 @@
         </div>
         <p>Made by Ilham and Zahra</p>
     </section>
+
+    <!-- Firebase and login handling -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFnkeNCEUse2BLRAcKvJuKyjpmFicLcdQ",
+            authDomain: "preschool-node.firebaseapp.com",
+            projectId: "preschool-node",
+            storageBucket: "preschool-node.appspot.com",
+            messagingSenderId: "452557222180",
+            appId: "1:452557222180:web:9e0f02ece79e0d86f803b1",
+            measurementId: "G-QDRN2DFZVB"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessageDiv = document.getElementById('error-message');
+
+            // Clear previous error messages
+            errorMessageDiv.textContent = '';
+
+            // Validate email and password
+            if (!email || !password) {
+                errorMessageDiv.textContent = 'Please fill out all fields.';
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                errorMessageDiv.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            try {
+                console.log("Attempting to sign in with email:", email);
+                // Authenticate with Firebase
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                alert('Login successful!');
+
+                window.location.href = 'home.html';  // Redirect to home.html
+            } catch (error) {
+                console.error("Login error:", error);
+                let errorMessage = 'An error occurred during login.';
+                if (error.code === 'auth/user-not-found') {
+                    errorMessage = 'No user found with this email.';
+                } else if (error.code === 'auth/wrong-password') {
+                    errorMessage = 'Incorrect password.';
+                } else if (error.code === 'auth/invalid-email') {
+                    errorMessage = 'Invalid email address.';
+                }
+                errorMessageDiv.textContent = errorMessage;
+            }
+        });
+    </script>
 </body>
 
 </html>
