@@ -22,12 +22,19 @@ applicantRoute.post("/", async (req, res, next) => {
         address: req.body.address,
         phone: req.body.phone,
         parent: req.body.parent,
-        parentphone: req.body.parentphone
+        parentnum: req.body.parentnum
     })
     res.json({
-        "message" : "Added to messages collection"
+        "message" : "Added to applicants collection"
     })
 })
+// applicantRoute.get('/delete/:id', async (req, res, next) => {
+//     try {
+//       applicantRoute.delete({url: `/${req.params.id}`}).then(res.json({"message" : "Routed"}))
+//     } catch (error) {
+//       res.json({"message": error})
+//     }
+//   });
 applicantRoute.put('/:id', async (req, res) => {
     const {id} = req.params;
     const ref = doc(db, "applicants", id)

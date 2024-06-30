@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wilson Preschool</title>
     <link rel="stylesheet" href="/admin/style.css">
+    <link rel="stylesheet" href="/tailwind.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap"
@@ -51,7 +52,7 @@
         <h1>Applicants List</h1>
         <p>Lists of the applicants.</p>
 
-        <div class="table-wrapper">
+        <!-- <div class="table-wrapper">
             <table class="fl-table">
                 <thead>
                     <tr>
@@ -71,7 +72,85 @@
 
                 </tbody>
             </table>
-        </div>
+        </div> -->
+        
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <!-- <th scope="col" class="px-6 py-3">
+                    Doc id
+                </th> -->
+                <th scope="col" class="px-6 py-3">
+                    Nama
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Jenis Kelamin
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Tanggal Lahir
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Alamat
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Telepon Rumah
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nama Orang Tua
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Telepon Orang Tua
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Delete</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="applicantsbody">
+        
+        </tbody>
+    </table>
+</div>
+<script>
+    fetch("/applicants", {method: "GET"}).then(res => res.json()).then(datares => datares.forEach(item=>{
+        const html = `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        ${item.name}
+                        </th>
+                        <td class="px-6 py-4">
+                        ${item.gender}
+                        </td>
+                        <td class="px-6 py-4">
+                        ${item.dateofbirth}
+                        </td>
+                        <td class="px-6 py-4">
+                        ${item.address}
+                        </td>
+                        <td class="px-6 py-4">
+                        ${item.phone}
+                        </td>
+                        <td class="px-6 py-4">
+                        ${item.parent}
+                        </td>
+                        <td class="px-6 py-4">
+                        ${item.parentnum}
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <a href="" id='${item.id}' class="delete font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                        </td>
+                    </tr>`
+        document.getElementById('applicantsbody').insertAdjacentHTML('beforeend',html);
+    }))
+</script>
+
     </section>
 
     <!--Footer-->

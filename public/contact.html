@@ -81,27 +81,64 @@
       <h3>Contact Us</h3>
 
       <!-- form message -->
-      <form onsubmit="return validateMyForm();" class="Contact-form" action="contact" method="post">
+      <form id="Contact-form" class="Contact-form">
         <input id="name" type="text" name="name" placeholder="Enter Your Name" required>
         <input id="email" type="Email" name="email" placeholder="Enter Your Email" required>
         <input type="text" name="subject" placeholder="Subject" required>
         <textarea rows="8" name="message" placeholder="Messages" required></textarea>
-        <button type="Submit" class="hero-btn red-btn"> POST</button>
+        <button class="hero-btn red-btn" type="submit"> POST</button>
         <p></p> <!-- display the message from the servlet -->
-
-
         <script>
-          function validateMyForm() {
-            var txt;
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            if (confirm("Do you want to submit this form?" + "\n"+"Name: " + name + "\n" + "Email: " + email)) {
-              return true
-            } else {
-              return false
-            }
-            document.getElementById("demo").innerHTML = txt;
-          }
+            const addMsgForm = document.getElementById('#Contact-form')
+            addMsgForm.addEventListener('submit', (e) => {
+                e.preventDefault()
+                if (confirm("Do you want to submit this form?" + "\n"+"Name: " + addMsgForm.name.value + "\n" + "Email: " + addMsgForm.email.value)) {
+                  return true
+                } else {
+                  return false
+                }
+                const formdata = JSON.stringify({
+                    name : addMsgForm.name.value,
+                    email : addMsgForm.email.value,
+                    subject : addMsgForm.subject.value,
+                    message : addMsgForm.message.value
+                  })
+                  
+                fetch("/msg",{
+                    method: "POST",
+                    headers: {
+                        'Content-Type':'application/json',
+                        'Accept':'application/json'
+                    },
+                    body: formdata
+                }).then(response => response.json()).then(response => console.log(response));
+            })
+          //   var txt;
+          //   var nameval = document.getElementById("name").value;
+          //   var emailval = document.getElementById("email").value;
+          //   var subjectval = document.getElementsByName("subject").value;
+          //   var messageval = document.getElementsByName("message").value;
+          //   const formdata = JSON.stringify({
+          //     name : nameval,
+          //     email : emailval,
+          //     subject : subjectval,
+          //     message : messageval
+          //   })
+          //   if (confirm("Do you want to submit this form?" + "\n"+"Name: " + nameval + "\n" + "Email: " + emailval)) {
+          //     return true
+          //   } else {
+          //     return false
+          //   }
+          //   document.getElementById("demo").innerHTML = txt;
+          //   fetch("/msg", {
+          //     method : "POST",
+          //     headers: {
+          //     'Content-Type':'application/json',
+          //     'Accept':'application/json'
+          //     },
+          //     body: formdata
+          //   }).then(res => document.getElementById("demo").innerHTML = res)
+          // }
         </script>
       </form>
 
@@ -121,8 +158,6 @@
     <a href="https://twitter.com/sekolahcikal?lang=en" class="fa fa-twitter"></a>
   </div>
   <p>Made by Ishom, Shofiyah, and Zahra</p>
-</section>
-
 </section>
 </body>
 </html>

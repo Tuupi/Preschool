@@ -14,7 +14,7 @@ msgRoute.get('/', (req, res) => {
         res.json(msg);
     })
 })
-msgRoute.post('/', async (req, res, next) => {
+msgRoute.post('/', (req, res, next) => {
     addDoc(colRef, {
         email: req.body.email,
         name: req.body.name,
@@ -25,12 +25,14 @@ msgRoute.post('/', async (req, res, next) => {
         "message" : "Added to messages collection"
     })
 })
+
 msgRoute.put('/:id', async (req, res) => {
     const {id} = req.params;
     const ref = doc(db, "messages", id)
     await updateDoc(ref, req.body)
     res.json({"message" : "Updated at id " + id})
 })
+
 msgRoute.delete('/:id', async (req, res, next) => {
     try {
       const { id } = req.params;

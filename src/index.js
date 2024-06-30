@@ -27,6 +27,8 @@ addCommentForm.addEventListener('submit', (e) => {
             'Accept':'application/json'
         },
         body: formData
-    }).then(response => response.json()).then(response => console.log(response));
+    }).then(response => response.json()).then(response => console.log(response)).next(res.redirect('/blog.html'));
 
 })
+
+
