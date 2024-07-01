@@ -6,6 +6,7 @@
   <!--!--Make the web become dynamic-->
   <title>Wilson Preschool</title>
   <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="tailwind.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -87,61 +88,65 @@
         <input type="text" name="subject" placeholder="Subject" required>
         <textarea rows="8" name="message" placeholder="Messages" required></textarea>
         <button class="hero-btn red-btn" type="submit"> POST</button>
-        <p></p> <!-- display the message from the servlet -->
-        <script>
-            const addMsgForm = document.getElementById('#Contact-form')
-            addMsgForm.addEventListener('submit', (e) => {
-                e.preventDefault()
-                if (confirm("Do you want to submit this form?" + "\n"+"Name: " + addMsgForm.name.value + "\n" + "Email: " + addMsgForm.email.value)) {
-                  return true
-                } else {
-                  return false
-                }
-                const formdata = JSON.stringify({
-                    name : addMsgForm.name.value,
-                    email : addMsgForm.email.value,
-                    subject : addMsgForm.subject.value,
-                    message : addMsgForm.message.value
-                  })
-                  
-                fetch("/msg",{
-                    method: "POST",
-                    headers: {
-                        'Content-Type':'application/json',
-                        'Accept':'application/json'
-                    },
-                    body: formdata
-                }).then(response => response.json()).then(response => console.log(response));
-            })
-          //   var txt;
-          //   var nameval = document.getElementById("name").value;
-          //   var emailval = document.getElementById("email").value;
-          //   var subjectval = document.getElementsByName("subject").value;
-          //   var messageval = document.getElementsByName("message").value;
-          //   const formdata = JSON.stringify({
-          //     name : nameval,
-          //     email : emailval,
-          //     subject : subjectval,
-          //     message : messageval
-          //   })
-          //   if (confirm("Do you want to submit this form?" + "\n"+"Name: " + nameval + "\n" + "Email: " + emailval)) {
-          //     return true
-          //   } else {
-          //     return false
-          //   }
-          //   document.getElementById("demo").innerHTML = txt;
-          //   fetch("/msg", {
-          //     method : "POST",
-          //     headers: {
-          //     'Content-Type':'application/json',
-          //     'Accept':'application/json'
-          //     },
-          //     body: formdata
-          //   }).then(res => document.getElementById("demo").innerHTML = res)
-          // }
-        </script>
+        <p id="aftercontact" class="p-4 mb-4 text-sm text-green-800 rounded-lg"></p> <!-- display the message from the servlet -->
       </form>
-
+      <script>  
+        const addMsgForm = document.getElementById('Contact-form')
+        addMsgForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formdata = JSON.stringify({
+                name : addMsgForm.name.value,
+                email : addMsgForm.email.value,
+                subject : addMsgForm.subject.value,
+                message : addMsgForm.message.value
+              })
+            if (confirm("Do you want to submit this form?" + "\n"+"Name: " + addMsgForm.name.value + "\n" + "Email: " + addMsgForm.email.value)) {
+              fetch("/msg", {
+                method: "POST",
+                headers: {
+                    'Content-Type':'application/json',
+                    'Accept':'application/json'
+                },
+                body: formdata
+              }).then(response => response.json()).then(response => console.log(response));
+              addMsgForm.reset();
+              document.getElementById('aftercontact').innerHTML = 'Thank you for your feedback!'
+              return true
+            } else {
+              return false
+            }
+            
+              
+            
+        })
+      
+      //   var txt;
+      //   var nameval = document.getElementById("name").value;
+      //   var emailval = document.getElementById("email").value;
+      //   var subjectval = document.getElementsByName("subject").value;
+      //   var messageval = document.getElementsByName("message").value;
+      //   const formdata = JSON.stringify({
+      //     name : nameval,
+      //     email : emailval,
+      //     subject : subjectval,
+      //     message : messageval
+      //   })
+      //   if (confirm("Do you want to submit this form?" + "\n"+"Name: " + nameval + "\n" + "Email: " + emailval)) {
+      //     return true
+      //   } else {
+      //     return false
+      //   }
+      //   document.getElementById("demo").innerHTML = txt;
+      //   fetch("/msg", {
+      //     method : "POST",
+      //     headers: {
+      //     'Content-Type':'application/json',
+      //     'Accept':'application/json'
+      //     },
+      //     body: formdata
+      //   }).then(res => document.getElementById("demo").innerHTML = res)
+      // }
+    </script>
     </div>
   </div>
 </section>

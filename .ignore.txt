@@ -2,4 +2,6 @@
     "css": "tailwindcss -i ./src/input.css -o ./public/tailwind.css --watch"
 
     "build": "webpack",
+    "css": "tailwindcss -i ./src/input.css -o ./public/tailwind.css --watch""dev" : " server.js",
+    "build": "webpack",
     "css": "tailwindcss -i ./src/input.css -o ./public/tailwind.css --watch"

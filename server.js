@@ -4,7 +4,7 @@ const applicantRoute = require('./api/v1/applicantsRouter');
 const cmntsRoute = require('./api/v1/commentsRouter');
 const msgRoute = require('./api/v1/messagesRouter');
 const app = express();
-
+app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))

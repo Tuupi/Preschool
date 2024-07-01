@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('./connection.js');
 const cmntsRoute = express.Router();
 
-const { collection,  getDocs, addDoc, Timestamp } = require('firebase/firestore');
+const { collection,  getDocs, addDoc, Timestamp, doc, deleteDoc, getDoc } = require('firebase/firestore');
 const colRef = collection(db, 'comments')
 cmntsRoute.use(express.urlencoded({extended: true}))
 cmntsRoute.get("/", (req, res) => {
@@ -47,11 +47,33 @@ cmntsRoute.put('/:id', async (req, res) => {
 })
 cmntsRoute.delete('/:id', async (req, res, next) => {
     try {
-      const { id } = req.params;
-      await deleteDoc(doc(db, 'comments', id))
-      res.json({ "message": 'comments Deleted' });
-    } catch (error) {
-      res.json({"message": error})
+        const { id } = req.params;
+
+        // Check if the document exists before attempting to delete it
+        const commentRef = doc(db, 'comments', id);
+        const commentSnapshot = await getDoc(commentRef);
+
+        if (!commentSnapshot.exists()) {
+            return res.status(404).json({ error: 'Comment not found' });
+        }
+
+        // Delete the document
+        await deleteDoc(commentRef);
+
+        // Return a success response
+        res.json({ message: 'Comment deleted' });
+    } catch (err) {
+        // Handle errors
+        console.error('Error deleting comment:', err);
+
+        // Check the error code and provide a more specific error response
+        if (err.code === 'permission-denied') {
+            return res.status(403).json({ error: 'You do not have permission to delete this comment' });
+        } else if (err.code === 'not-found') {
+            return res.status(404).json({ error: 'Comment not found' });
+        } else {
+            return res.status(500).json({ error: 'Error deleting comment' });
+        }
     }
-  });
+})
 module.exports = cmntsRoute;

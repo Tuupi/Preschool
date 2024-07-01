@@ -15,15 +15,27 @@ msgRoute.get('/', (req, res) => {
     })
 })
 msgRoute.post('/', (req, res, next) => {
-    addDoc(colRef, {
-        email: req.body.email,
-        name: req.body.name,
-        subject: req.body.subject,
-        messages: req.body.messages
-    })
-    res.json({
-        "message" : "Added to messages collection"
-    })
+    try {
+        // Validate the incoming data
+        if (!req.body.email || !req.body.name || !req.body.subject || !req.body.message) {
+            return res.status(400).json({ error: 'Missing required fields', fieldsValue: req.body.name + ' ' + req.body.email + ' ' + req.body.message + ' ' + req.body.subject });
+        }
+
+        // Add the new message to the collection
+        addDoc(colRef, {
+            email: req.body.email,
+            name: req.body.name,
+            subject: req.body.subject,
+            message: req.body.message
+        });
+
+        // Return a success response
+        res.status(201).json({ message: 'Added to messages collection' });
+    } catch (err) {
+        // Handle errors
+        console.error('Error adding message:', err);
+        res.status(500).json({ error: 'Error adding message' });
+    }
 })
 
 msgRoute.put('/:id', async (req, res) => {
