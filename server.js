@@ -4,12 +4,14 @@ const applicantRoute = require('./api/v1/applicantsRouter');
 const cmntsRoute = require('./api/v1/commentsRouter');
 const msgRoute = require('./api/v1/messagesRouter');
 const app = express();
-app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public'))).set('views', path.join(__dirname, 'views')).set('view engine', 'ejs')
 app.get("/admin", (req, res) => {
     res.redirect("/admin/login.html")
+})
+app.get("/registration",(req, res) => {
+    res.render('registration')
 })
 app.use("/applicants", applicantRoute)
 app.use("/comments", cmntsRoute)
